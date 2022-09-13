@@ -2,12 +2,11 @@ import psycopg2
 from psycopg2 import Error
 
 try:
-    connection = psycopg2.connect(user="postgres", password="UTEC", database="postgres", host="localhost", port="5432")
-
+    connection = psycopg2.connect(user="postgres", password="perez123", database="EstudientesUTEC", host="localhost", port="5432")
 
     cursor = connection.cursor()
     # Executing a SQL query to insert data into  table
-    cursor.execute("SELECT * from class")
+    cursor.execute("SELECT * from class estudiente")
     record = cursor.fetchall()
     print("Result ", record)
 
@@ -16,7 +15,7 @@ try:
     connection.commit()
     print("1 Record inserted successfully")
     # Fetch result
-    cursor.execute("SELECT * from class")
+    cursor.execute("SELECT * from class estudiente")
     record = cursor.fetchall()
     print("Result ", record)
 
@@ -27,7 +26,7 @@ try:
     count = cursor.rowcount
     print(count, "Record updated successfully ")
     # Fetch result
-    cursor.execute("SELECT * from class")
+    cursor.execute("SELECT * from class estudiente")
     print("Result ", cursor.fetchall())
 
     # Executing a SQL query to delete table
@@ -37,8 +36,9 @@ try:
     count = cursor.rowcount
     print(count, "Record deleted successfully ")
     # Fetch result
-    cursor.execute("SELECT * from class")
+    cursor.execute("SELECT * from class estudiente")
     print("Result ", cursor.fetchall())
+    
 
 
 except (Exception, psycopg2.Error) as error:
@@ -48,3 +48,4 @@ finally:
         cursor.close()
         connection.close()
         print("PostgreSQL connection is closed")
+

@@ -20,4 +20,4 @@ for name in names:
 
 # muestra el resultado
 print(json.dumps(paises, indent=4))
-#print(json.dumps(result, indent = 4))
+print(json.dumps(result, indent = 4))
